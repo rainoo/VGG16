@@ -2,7 +2,7 @@ import torch
 import torch.utils.data as Data
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
-from model import vgg16
+from model import Vgg16
 
 def test_data_process():
     test_data = FashionMNIST(root='./data',
@@ -37,7 +37,7 @@ def test_model_process(model, test_dataloader):
         print(f"测试的准确率为: {test_acc}")
 
 if __name__ == '__main__':
-    model = vgg16()
+    model = Vgg16()
     model.load_state_dict(torch.load('best_model.pth'))
     test_dataloader = test_data_process()
     test_model_process(model, test_dataloader)

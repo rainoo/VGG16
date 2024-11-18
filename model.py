@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torchsummary import summary
 
-class vgg16(nn.Module):
+class Vgg16(nn.Module):
     def __init__(self, num_classes=10):
         super().__init__()
         self.block1 = nn.Sequential(
@@ -78,5 +78,5 @@ class vgg16(nn.Module):
 
 if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    model = vgg16().to(device)
+    model = Vgg16().to(device)
     print(summary(model, (1, 224, 224)))
